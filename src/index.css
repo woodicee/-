@@ -1,20 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@700;900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Noto Serif SC", serif;
 }
 
 :root {
-  --bg: #0f172a;
+  --bg: #0F0F12;
   --ink: #f8fafc;
-  --accent: #e11d48;
+  --accent-gold: #D4AF37;
+  --accent-green: #00FFC3;
+  --warning-red: #FF4D4F;
 }
 
 body {
   background-color: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
+}
+
+.font-serif-jianghu {
+  font-family: var(--font-serif);
 }
 
 /* Custom scrollbar for a sleek dashboard look */
@@ -27,24 +35,51 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #1e1e24;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #334155;
 }
 
 .jianghu-card {
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.2s ease;
+  background: rgba(20, 20, 25, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .jianghu-card:hover {
-  border-color: rgba(225, 29, 72, 0.5);
-  box-shadow: 0 0 20px rgba(225, 29, 72, 0.1);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.frosted-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.text-gold { color: var(--accent-gold); }
+.text-tech-green { color: var(--accent-green); }
+.text-warning { color: var(--warning-red); }
+
+.bg-gold { background-color: var(--accent-gold); }
+.bg-tech-green { background-color: var(--accent-green); }
+.bg-warning { background-color: var(--warning-red); }
+
+.border-gold { border-color: var(--accent-gold); }
+.border-tech-green { border-color: var(--accent-green); }
+.border-warning { border-color: var(--warning-red); }
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
 }
 
 .vertical-text {

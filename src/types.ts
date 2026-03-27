@@ -29,3 +29,28 @@ export interface Task {
   createdAt: number;
   deadline?: number;
 }
+
+export interface FunnelStep {
+  label: string;
+  value: number;
+  unit: string;
+  conversionRate?: number;
+  icon: string;
+  color: string;
+  description: string;
+}
+
+export interface Node {
+  id: string;
+  name: string;
+  avatar: string;
+  color: string;
+  x?: number;
+  y?: number;
+}
+
+export interface Link {
+  source: string;
+  target: string;
+  label: string;
+}

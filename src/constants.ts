@@ -1,11 +1,12 @@
-import { Role } from './types';
+import { Role, FunnelStep, Link } from './types';
 
 export const ROLES: Role[] = [
+  // ... existing roles ...
   {
     id: 'guojing',
     name: '郭靖',
-    title: '店店长/总指挥',
-    responsibility: '整体运营策略、目标制定、最终决策',
+    title: '店长/总指挥',
+    responsibility: '电竞国度品牌整体运营策略、目标制定、最终决策',
     tasks: ['销售目标', '库存策略', '定价决策'],
     color: 'bg-red-900',
     avatar: '🏹',
@@ -20,17 +21,19 @@ export const ROLES: Role[] = [
   {
     id: 'huangrong',
     name: '黄蓉',
-    title: '营销策划',
-    responsibility: '营销方案、活动策划、内容创作',
-    tasks: ['详情页文案', '朋友圈素材', '促销方案'],
+    title: '小红书运营',
+    responsibility: '电竞国度小红书账号全权运营、内容创作、爆文监控、主动互动种草、潜在客资抓取',
+    tasks: ['每日发布', '数据统计', '评论回复', '周/月复盘'],
     color: 'bg-emerald-800',
     avatar: '🎋',
-    motto: '算无遗策，妙笔生花。',
+    motto: '算无遗策，妙笔生花；红书为翼，流量为王。',
     specialSkill: '打狗棒法 · 变幻莫测',
     pattern: 'linear-gradient(45deg, rgba(16,185,129,0.05) 25%, transparent 25%, transparent 50%, rgba(16,185,129,0.05) 50%, rgba(16,185,129,0.05) 75%, transparent 75%, transparent)',
     stats: [
-      { label: '活动转化率', value: '4.8%', trend: 'up' },
-      { label: '素材产出量', value: '42份/周', trend: 'up' },
+      { label: '粉丝总数', value: '15.8k', trend: 'up' },
+      { label: '笔记均赞', value: '850', trend: 'up' },
+      { label: '私信转化率', value: '12%', trend: 'up' },
+      { label: '自动化覆盖', value: '95%', trend: 'up' },
     ],
   },
   {
@@ -113,4 +116,21 @@ export const ROLES: Role[] = [
       { label: '物流投诉率', value: '0.1%', trend: 'down' },
     ],
   },
+];
+
+export const FUNNEL_DATA: FunnelStep[] = [
+  { label: '全网流量', value: 125000, unit: 'UV', icon: '🌊', color: 'bg-blue-500', description: '周伯通/黄蓉：电竞国度全渠道引流总量' },
+  { label: '进店咨询', value: 45000, unit: '人', conversionRate: 36, icon: '💬', color: 'bg-amber-500', description: '杨过：电竞国度售前咨询与导购' },
+  { label: '下单成交', value: 8500, unit: '单', conversionRate: 18.8, icon: '💰', color: 'bg-rose-500', description: '郭靖/洪七公：电竞国度订单转化与发货' },
+  { label: '售后完结', value: 420, unit: '例', conversionRate: 4.9, icon: '🛡️', color: 'bg-emerald-500', description: '小龙女：售后处理与评价' },
+];
+
+export const TOPOLOGY_LINKS: Link[] = [
+  { source: 'zhoubotong', target: 'guojing', label: '竞品情报' },
+  { source: 'huangrong', target: 'yangguo', label: '线索转办' },
+  { source: 'yangguo', target: 'guojing', label: '大客户议价' },
+  { source: 'guojing', target: 'hongqigong', label: '发货指令' },
+  { source: 'hongqigong', target: 'xiaolongnu', label: '物流异常' },
+  { source: 'ouyangfeng', target: 'guojing', label: '利润预警' },
+  { source: 'xiaolongnu', target: 'huangrong', label: '评价反馈' },
 ];
